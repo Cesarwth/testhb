@@ -19,8 +19,8 @@ sample data to demonstrate the functionality.
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/pricing-service.git
-   cd pricing-service
+   git clone https://github.com/Cesarwth/testhb.git
+   cd campaign
 
 2. Build and run the project using Maven:
    ```bash
@@ -75,7 +75,7 @@ Use the following credentials to access the console:
 ```bash 
    JDBC URL: jdbc:h2:mem:testdb
    User: sa
-   Password: (leave it empty)
+   Password:
 ``` 
 
 ### Running Tests
