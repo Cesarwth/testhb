@@ -75,7 +75,7 @@ Use the following credentials to access the console:
 ```bash 
    JDBC URL: jdbc:h2:mem:testdb
    User: sa
-   Password:
+   Password: password
 ``` 
 
 ### Running Tests
