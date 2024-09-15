@@ -24,7 +24,7 @@ sample data to demonstrate the functionality.
 
 2. Build and run the project using Maven:
    ```bash
-   ./mvnw spring-boot:run
+   mvn spring-boot:run
 
 3. The application will start on the default port 8080.
 4. Access Swagger UI for testing the endpoints:
