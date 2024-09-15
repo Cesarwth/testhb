@@ -53,7 +53,7 @@ class PriceControllerTest {
     }
 
     @Test
-    void testGetPrice_Test1() throws Exception {
+    void test2020_06_14_10_00_00() throws Exception {
         String applicationDate = "2020-06-14-10.00.00";
         int productId = 35455;
         int brandId = 1;
@@ -75,7 +75,7 @@ class PriceControllerTest {
     }
 
     @Test
-    void testGetPrice_Test2() throws Exception {
+    void test2020_06_14_16_00_00() throws Exception {
         String applicationDate = "2020-06-14-16.00.00";
         int productId = 35455;
         int brandId = 1;
@@ -97,7 +97,7 @@ class PriceControllerTest {
     }
 
     @Test
-    void testGetPrice_Test3() throws Exception {
+    void test2020_06_14_21_00_00() throws Exception {
         String applicationDate = "2020-06-14-21.00.00";
         int productId = 35455;
         int brandId = 1;
@@ -105,7 +105,7 @@ class PriceControllerTest {
         Price mockPrice = new Price();
         mockPrice.setProductId(productId);
         mockPrice.setBrandId(brandId);
-        mockPrice.setPrice(35.50); // Ajusta el precio según tu caso de prueba
+        mockPrice.setPrice(35.50);
 
         when(priceService.getApplicablePrice(productId, brandId, LocalDateTime.of(2020, 6, 14, 21, 0)))
                 .thenReturn(Optional.of(mockPrice));
@@ -113,13 +113,13 @@ class PriceControllerTest {
         PriceResponse expectedResponse = new PriceResponse();
         expectedResponse.setProductId(productId);
         expectedResponse.setBrandId(brandId);
-        expectedResponse.setPrice(35.50); // Ajusta el precio según tu caso de prueba
+        expectedResponse.setPrice(35.50);
 
         executeTest(applicationDate, productId, brandId, expectedResponse);
     }
 
     @Test
-    void testGetPrice_Test4() throws Exception {
+    void test2020_06_15_10_00_00() throws Exception {
         String applicationDate = "2020-06-15-10.00.00";
         int productId = 35455;
         int brandId = 1;
@@ -127,7 +127,7 @@ class PriceControllerTest {
         Price mockPrice = new Price();
         mockPrice.setProductId(productId);
         mockPrice.setBrandId(brandId);
-        mockPrice.setPrice(30.50); // Ajusta el precio según tu caso de prueba
+        mockPrice.setPrice(30.50);
 
         when(priceService.getApplicablePrice(productId, brandId, LocalDateTime.of(2020, 6, 15, 10, 0)))
                 .thenReturn(Optional.of(mockPrice));
@@ -135,13 +135,13 @@ class PriceControllerTest {
         PriceResponse expectedResponse = new PriceResponse();
         expectedResponse.setProductId(productId);
         expectedResponse.setBrandId(brandId);
-        expectedResponse.setPrice(30.50); // Ajusta el precio según tu caso de prueba
+        expectedResponse.setPrice(30.50);
 
         executeTest(applicationDate, productId, brandId, expectedResponse);
     }
 
     @Test
-    void testGetPrice_Test5() throws Exception {
+    void test2020_06_16_21_00_00() throws Exception {
         String applicationDate = "2020-06-16-21.00.00";
         int productId = 35455;
         int brandId = 1;
@@ -149,7 +149,7 @@ class PriceControllerTest {
         Price mockPrice = new Price();
         mockPrice.setProductId(productId);
         mockPrice.setBrandId(brandId);
-        mockPrice.setPrice(38.95); // Ajusta el precio según tu caso de prueba
+        mockPrice.setPrice(38.95);
 
         when(priceService.getApplicablePrice(productId, brandId, LocalDateTime.of(2020, 6, 16, 21, 0)))
                 .thenReturn(Optional.of(mockPrice));
@@ -157,7 +157,7 @@ class PriceControllerTest {
         PriceResponse expectedResponse = new PriceResponse();
         expectedResponse.setProductId(productId);
         expectedResponse.setBrandId(brandId);
-        expectedResponse.setPrice(38.95); // Ajusta el precio según tu caso de prueba
+        expectedResponse.setPrice(38.95);
 
         executeTest(applicationDate, productId, brandId, expectedResponse);
     }

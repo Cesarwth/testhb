@@ -20,18 +20,18 @@ import static org.mockito.Mockito.when;
 
 public class PriceServiceTest {
     @Mock
-    private PriceRepository priceRepository;  // Simulamos el repositorio
+    private PriceRepository priceRepository;
 
     @InjectMocks
-    private PriceService priceService;  // Servicio que estamos probando
+    private PriceService priceService;
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this);  // Inicializamos los mocks
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void testGetApplicablePrice_ReturnsCorrectPrice() {
+    void getApplicablePrice_ReturnsCorrectPrice() {
         LocalDateTime applicationDate = LocalDateTime.of(2020, 6, 14, 10, 0);
         int productId = 35455;
         int brandId = 1;
@@ -41,34 +41,27 @@ public class PriceServiceTest {
         mockPrice.setBrandId(brandId);
         mockPrice.setPrice(35.50);
 
-        // Simulamos que el repositorio devuelve un precio válido
         when(priceRepository.findApplicablePrice(productId, brandId, applicationDate))
                 .thenReturn(Optional.of(mockPrice));
 
-        // Cuando
         Optional<Price> result = priceService.getApplicablePrice(productId, brandId, applicationDate);
 
-        // Entonces
         assertTrue(result.isPresent());
         assertEquals(35.50, result.get().getPrice());
         verify(priceRepository, times(1)).findApplicablePrice(productId, brandId, applicationDate);
     }
 
     @Test
-    void testGetApplicablePrice_NoPriceFound_ReturnsEmpty() {
-        // Dado
+    void getApplicablePrice_NoPriceFound_ReturnsEmpty() {
         LocalDateTime applicationDate = LocalDateTime.of(2020, 6, 14, 10, 0);
         int productId = 35455;
         int brandId = 1;
 
-        // Simulamos que no se encuentra ningún precio
         when(priceRepository.findApplicablePrice(productId, brandId, applicationDate))
                 .thenReturn(Optional.empty());
 
-        // Cuando
         Optional<Price> result = priceService.getApplicablePrice(productId, brandId, applicationDate);
 
-        // Entonces
         assertTrue(result.isEmpty());
         verify(priceRepository, times(1)).findApplicablePrice(productId, brandId, applicationDate);
     }

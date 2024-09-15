@@ -50,7 +50,7 @@ class PriceRepositoryImplTest {
         int brandId = 1;
         LocalDateTime applicationDate = LocalDateTime.of(2020, 6, 14, 10, 0, 0);
 
-        Price price = new Price(); // Asume que tienes una clase de dominio Price con los atributos correspondientes
+        Price price = new Price();
         when(entityManager.createQuery(anyString(), eq(Price.class))).thenReturn(typedQuery);
         when(typedQuery.setParameter(eq("productId"), eq(productId))).thenReturn(typedQuery);
         when(typedQuery.setParameter(eq("brandId"), eq(brandId))).thenReturn(typedQuery);
@@ -69,7 +69,6 @@ class PriceRepositoryImplTest {
 
     @Test
     void testFindApplicablePrice_NotFound() {
-        // Arrange
         int productId = 35455;
         int brandId = 1;
         LocalDateTime applicationDate = LocalDateTime.of(2020, 6, 14, 10, 0, 0);
@@ -80,10 +79,8 @@ class PriceRepositoryImplTest {
         when(typedQuery.setParameter(eq("applicationDate"), eq(applicationDate))).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.emptyList());
 
-        // Act
         Optional<Price> result = priceRepository.findApplicablePrice(productId, brandId, applicationDate);
 
-        // Assert
         assertFalse(result.isPresent());
         verify(typedQuery, times(1)).getResultList();
         logger.info("Test for findApplicablePrice_NotFound passed");
@@ -91,7 +88,6 @@ class PriceRepositoryImplTest {
 
     @Test
     void testFindApplicablePrice_EmptyList() {
-        // Arrange
         int productId = 35455;
         int brandId = 1;
         LocalDateTime applicationDate = LocalDateTime.of(2020, 6, 14, 10, 0, 0);
@@ -102,10 +98,8 @@ class PriceRepositoryImplTest {
         when(typedQuery.setParameter(eq("applicationDate"), eq(applicationDate))).thenReturn(typedQuery);
         when(typedQuery.getResultList()).thenReturn(Collections.emptyList());
 
-        // Act
         Optional<Price> result = priceRepository.findApplicablePrice(productId, brandId, applicationDate);
 
-        // Assert
         assertFalse(result.isPresent());
         verify(typedQuery, times(1)).getResultList();
         logger.info("Test for findApplicablePrice_EmptyList passed");
