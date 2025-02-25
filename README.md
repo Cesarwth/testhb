@@ -11,6 +11,7 @@ sample data to demonstrate the functionality.
 - Swagger UI for testing and API documentation.
 
 ## Prerequisites
+--Informacion adicional
 
 - Java 17
 - Maven 3.x
